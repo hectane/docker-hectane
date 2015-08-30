@@ -14,5 +14,10 @@ ENV GOPATH=/root
 RUN go get github.com/nathan-osman/go-cannon
 
 # Specify the executable to run and the port to expose
-CMD /root/bin/go-cannon
+CMD /root/bin/go-cannon \
+        -tls-cert=$TLS_CERT \
+        -tls-key=$TLS_KEY \
+        -username=$USERNAME \
+        -password=$PASSWORD
+
 EXPOSE 8025
