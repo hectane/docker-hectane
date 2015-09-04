@@ -4,7 +4,7 @@ MAINTAINER Nathan Osman <nathan@quickmediasolutions.com>
 # Install Git and the Go compiler for building the application
 RUN \
     apt-get update && \
-    apt-get install -y git golang && \
+    apt-get install -y git mercurial golang && \
     rm -rf /var/lib/apt/lists/*
 
 # Set the GOPATH
