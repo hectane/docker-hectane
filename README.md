@@ -18,10 +18,16 @@ If you wish to enable HTTP basic auth, be sure to set the `USERNAME` and `PASSWO
         -e PASSWORD=passw0rd \
         ...
 
-Enabling TLS is also recommended. You can use volumes to make the certificate and private key available to the container and then set the `TLS_CERT` and `TLS_KEY` environment variables to the appropriate paths:
+Enabling TLS is also recommended. You can use a volume to make the certificate and private key available to the container and then set the `TLS_CERT` and `TLS_KEY` environment variables to the appropriate paths:
 
     docker run \
-        -v /home/bob/ssl:/root/ssl
+        -v /home/bob/ssl:/root/ssl \
         -e TLS_CERT=/root/ssl/server.crt \
         -e TLS_KEY=/root/ssl/server.key \
+        ...
+
+Emails awaiting delivery in the mail queue are stored in `/data` by default. This location can be changed by setting the `DIRECTORY` environment variable. Using a volume is recommended since you will most likely want to retain the emails between restarts:
+
+    docker run \
+        -v /home/bob/go-cannon:/data \
         ...
