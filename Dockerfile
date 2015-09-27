@@ -1,21 +1,14 @@
-FROM ubuntu:14.04
+FROM golang:latest
 MAINTAINER Nathan Osman <nathan@quickmediasolutions.com>
-
-# Install Git and the Go compiler for building the application
-RUN \
-    apt-get update && \
-    apt-get install -y git mercurial golang && \
-    rm -rf /var/lib/apt/lists/*
-
-# Set the GOPATH and storage location
-ENV GOPATH=/root
-ENV DIRECTORY=/data
 
 # Grab the source files and build them
 RUN go get github.com/nathan-osman/go-cannon
 
+# Set the storage location
+ENV DIRECTORY=/data
+
 # Specify the executable to run
-CMD /root/bin/go-cannon \
+CMD go-cannon \
         -tls-cert=$TLS_CERT \
         -tls-key=$TLS_KEY \
         -username=$USERNAME \
