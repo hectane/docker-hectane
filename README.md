@@ -31,3 +31,9 @@ Emails awaiting delivery in the mail queue are stored in `/data` by default. Thi
     docker run \
         -v /home/bob/go-cannon:/data \
         ...
+
+Some SMTP servers don't have TLS configured correctly, which prevents go-cannon from delivering messages. You can work around this by disabling SSL verification:
+
+    docker run \
+        -e DISABLE_SSL_VERIFICATION=1 \
+        ...
