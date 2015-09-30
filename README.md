@@ -9,7 +9,7 @@ To quickly deploy an instance of the container, use a command similar to the fol
     docker run \
         -d \
         -p 8025:8025 \
-        nathanosman/go-cannon
+        nathanosman/docker-go-cannon
 
 If you wish to enable HTTP basic auth, be sure to set the `USERNAME` and `PASSWORD` environment variables:
 
