@@ -1,6 +1,6 @@
-## go-cannon Container
+## Hectane Container
 
-This container provides up-to-date builds of [go-cannon](https://github.com/nathan-osman/go-cannon), a lightweight SMTP client. If all you want to do is send emails from your webapp, go-cannon is the perfect solution.
+This container provides up-to-date builds of [Hectane](https://github.com/hectane/hectane), a lightweight SMTP client. If all you want to do is send emails from your webapp, Hectane is the perfect solution.
 
 ### Usage
 
@@ -9,7 +9,7 @@ To quickly deploy an instance of the container, use a command similar to the fol
     docker run \
         -d \
         -p 8025:8025 \
-        nathanosman/docker-go-cannon
+        hectane/hectane
 
 If you wish to enable HTTP basic auth, be sure to set the `USERNAME` and `PASSWORD` environment variables:
 
@@ -29,10 +29,10 @@ Enabling TLS is also recommended. You can use a volume to make the certificate a
 Emails awaiting delivery in the mail queue are stored in `/data` by default. This location can be changed by setting the `DIRECTORY` environment variable. Using a volume is recommended since you will most likely want to retain the emails between restarts:
 
     docker run \
-        -v /home/bob/go-cannon:/data \
+        -v /home/bob/hectane:/data \
         ...
 
-Some SMTP servers don't have TLS configured correctly, which prevents go-cannon from delivering messages. You can work around this by disabling SSL verification:
+Some SMTP servers don't have TLS configured correctly, which prevents Hectane from delivering messages. You can work around this by disabling SSL verification:
 
     docker run \
         -e DISABLE_SSL_VERIFICATION=1 \
