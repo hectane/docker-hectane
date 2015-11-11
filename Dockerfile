@@ -11,10 +11,10 @@ RUN \
     rm hectane-v0.3.0-linux-amd64.tar.gz
 
 # Set a few configuration defaults
-ENV DEBUG=0 \
-        DIRECTORY=/data \
+ENV DIRECTORY=/data \
         DISABLE_SSL_VERIFICATION=0 \
-        LOGFILE=/var/log/hectane.log
+        LOGFILE=/var/log/hectane.log \
+        DEBUG=0
 
 # Specify the executable to run
 CMD /root/hectane \
@@ -23,7 +23,9 @@ CMD /root/hectane \
         -username="$USERNAME" \
         -password="$PASSWORD" \
         -directory="$DIRECTORY" \
-        -disable-ssl-verification="$DISABLE_SSL_VERIFICATION"
+        -disable-ssl-verification="$DISABLE_SSL_VERIFICATION" \
+        -logfile="$LOGFILE" \
+        -debug="$DEBUG"
 
 # Expose the port with the HTTP API
 EXPOSE 8025
