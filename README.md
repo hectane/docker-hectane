@@ -1,8 +1,8 @@
-## Hectane Container
+### Hectane Container
 
 This container provides up-to-date builds of [Hectane](https://github.com/hectane/hectane), a lightweight SMTP client. If all you want to do is send emails from your webapp, Hectane is the perfect solution.
 
-### Basic Usage
+#### Basic Usage
 
 To quickly deploy an instance of the container, use a command similar to the following:
 
